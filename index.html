@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tint Masters - Professional Car Tinting</title>
+    <title>AQ Tintz - Car Tinting</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -32,12 +32,18 @@
                 emailjs.sendForm('service_jntygv2', 'template_8ha74un', this)
                     .then(() => {
                         console.log('SUCCESS!');
-                        alert('Thank you for your request! We will get back to you shortly.');
-                        this.reset();
+                        document.getElementById('success-message').classList.remove('hidden');
+                        document.getElementById('contact-form').classList.add('hidden');
                     }, (error) => {
                         console.log('FAILED...', error);
                         alert('There was a problem submitting your form. Please try again later.');
                     });
+            });
+
+            document.getElementById('new-request-btn').addEventListener('click', function() {
+                document.getElementById('success-message').classList.add('hidden');
+                document.getElementById('contact-form').classList.remove('hidden');
+                document.getElementById('contact-form').reset();
             });
         }
     </script>
@@ -136,6 +142,11 @@
                     <textarea id="message" name="message" placeholder="Tell us about your car (Make, Model, Year)" rows="4" required></textarea>
                     <button type="submit" class="btn">Submit Request</button>
                 </form>
+                <div id="success-message" class="hidden">
+                    <h3>Thank you for your request!</h3>
+                    <p>We have received your information and will get back to you shortly.</p>
+                    <button id="new-request-btn" class="btn">Submit Another Request</button>
+                </div>
             </div>
         </section>
     </main>
