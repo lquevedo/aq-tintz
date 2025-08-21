@@ -51,7 +51,6 @@ header .logo {
 /* Hero Section */
 #hero {
     min-height: 400px;
-    background: url('https://via.placeholder.com/1500x800.png?text=Tinted+Car+Background') no-repeat 0 -400px;
     background-size: cover;
     text-align: center;
     color: #fff;
